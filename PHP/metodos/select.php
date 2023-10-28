@@ -46,13 +46,9 @@ foreach ($produtosPorCategoria as $categoria => $produtos) {
         // Verifica se o usuário está logado
         if ($usuario) {
 
-            echo '<form action="./paginaVenda.php" method="POST">';
+            echo '<button onclick="teste02(' . $produto['id'] . ')" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">Adicionar ao carrinho</button>';
+            echo '<a href="#" onclick="teste02(' . $produto['id'] . ')" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">Comprar</a>';
 
-            // Exibe botões para adicionar ao carrinho ou comprar
-            echo '<button onclick="teste02(' . $produto['id'] . ', \'' . $produto['nomeprod'] . '\', \'' . $produto['descricaoprod'] . '\', ' . $produto['preco'] . ')" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">Adicionar ao carrinho</button>';
-            echo '<a href="#"><button  onclick="teste02(' . $produto['id'] . ', \'' . $produto['nomeprod'] . '\', \'' . $produto['descricaoprod'] . '\', ' . $produto['preco'] . ')" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">Comprar</button></a>';
-
-            echo  '</form>';
         } else {
             // Exibe um link para a página de login caso o usuário não esteja logado
             echo ' <a href="http://localhost/loja_homologacao/PHP/paginaLoguin.php"><button>Faça login para adicionar ao carrinho</button></a>';
