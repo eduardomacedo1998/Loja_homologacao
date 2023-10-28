@@ -1,0 +1,134 @@
+header{
+    border-bottom: solid silver;
+}
+
+/* Estilo do contêiner do menu principal */
+.menu_principal {
+    background-color: #ffffff50; /* Cor de fundo escura */
+    padding: 10px; /* Espaçamento interno */
+    display: flex; /* Usando flexbox para alinhar itens horizontalmente */
+    justify-content: 5%; /* Espaçamento uniforme entre os links */
+    align-items: center; /* Centraliza verticalmente os links */
+  }
+  
+  /* Estilo dos links do menu */
+  .menu_principal a {
+    color: #1a0e0e; /* Cor do texto branca */
+    text-decoration: none; /* Remove sublinhado padrão dos links */
+    margin: 0 10px; /* Espaçamento horizontal entre os links */
+    font-size: 16px; /* Tamanho da fonte */
+    transition: color 0.3s; /* Transição de cor suave */
+    background-color: #8b8686;
+    padding: 0.50%;
+    border-radius: 25px;
+    font-weight: bold;
+  }
+  
+  /* Estilização ao passar o mouse sobre os links */
+  .menu_principal a:hover {
+    color: #e9e5e3; /* Cor de destaque ao passar o mouse (laranja, por exemplo) */
+  }
+
+  .error{
+    background-color: #ffffff00;
+    color: #ffffff00;
+    height: 1px;
+  }
+ 
+  
+
+
+/*ESTILOS DO CORPO DA PAGINA E DOS PRODUTOS EM GERAL*/
+
+
+
+
+
+/* estilo.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+  width: 100%;
+}
+
+.produto {
+  background-color: #ffffff;
+  border: 1px solid #cccccc9c;
+  padding: 5px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  border-radius: 25px;
+  
+}
+
+.produto:hover{
+  box-shadow: 0px 0px  25px rgba(92, 79, 79, 0.966), 0px 0px 25px rgba(94, 78, 78, 0.959);
+  transition: 0.8s;
+  
+}
+
+.produto img {
+  max-width: 100%;
+  max-height: 200px;
+  margin-bottom: 10px;
+}
+
+.produto h2 {
+  font-size: 20px;
+  color: #333;
+  margin: 0;
+}
+
+.produto p {
+  font-size: 16px;
+  color: #666;
+}
+
+.produto strong {
+  font-weight: bold;
+}
+
+.produto button{
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+}
+
+.categoria {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
+  width: 100%;
+  background-color: blue;
+  color: white;
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.445);
+  
+  text-align: center;
+  
+}
+
+
+#divteste{
+  background-color: red;
+}
+
