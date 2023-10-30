@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     
     
-   $insertcarrinho -> insert('carrinho',$dados);
+   $insertcarrinho -> insert('carrinho2',$dados);
 
     // Agora você pode fazer o que quiser com esses dados, por exemplo, inseri-los em um banco de dados ou realizar alguma outra operação.
     
