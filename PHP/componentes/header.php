@@ -55,9 +55,9 @@ echo '</section>';
  
  
 
-    echo '<a href="http://localhost/loja_homologacao/PHP/paginaHome.php">home</a>';
-    echo '<a href="">Carrinho</a>';
-    echo '<a href="">Contato</a>';
+    echo '<img  src="../imagens/home2.png"  class="icones" alt=""><a href="http://localhost/loja_homologacao/PHP/paginaHome.php">home</a>';
+    echo '<img src="../imagens/carrinho2.png" alt="" class="icones"><a href="http://localhost/loja_homologacao/PHP/paginaCarrinho.php">Carrinho</a>';
+    echo '<img  src="../imagens/contato.png"  class="icones" alt=""><a href="http://localhost/loja_homologacao/PHP/paginaHome.php">Contato</a>';
   
   
   

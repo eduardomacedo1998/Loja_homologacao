@@ -35,20 +35,22 @@ header{
  
   /* Estilo dos links do menu */
   .menu_principal a {
-    color: #ffffff; /* Cor do texto branca */
+    color: #000000; /* Cor do texto branca */
     text-decoration: none; /* Remove sublinhado padrão dos links */
     margin: 0 10px; /* Espaçamento horizontal entre os links */
     font-size: 16px; /* Tamanho da fonte */
     transition: color 0.3s; /* Transição de cor suave */
-    background-color: #00024d;
+    background-color: #d8d8d8;
     padding: 0.80%;
     border-radius: 25px;
     font-weight: bold;
+    margin-bottom: 5%;
   }
   
   /* Estilização ao passar o mouse sobre os links */
   .menu_principal a:hover {
-    color: #e9e5e3; /* Cor de destaque ao passar o mouse (laranja, por exemplo) */
+    color: #29a111; /* Cor de destaque ao passar o mouse (laranja, por exemplo) */
+    
   }
  
 
@@ -63,3 +65,8 @@ header{
     margin: 1%;
   }
   
+
+.icones{
+  width: 50px;
+}
+
