@@ -6,7 +6,7 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="./css/header7.css">
-    <link rel="stylesheet" href="../CSS/paginacarrinho.css">
+    <link rel="stylesheet" href="../CSS/paginacarrinho03.css">
 </head>
 <body>
 <header>
@@ -48,6 +48,28 @@
     </div>
         
     <h1 id="valor-total"></h1>
+
+    <button id="botao-finalizar">Finalizar</button>
+
+    <!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id="info-json">
+      <!-- As informações JSON serão exibidas aqui dinamicamente pelo seu script JavaScript -->
+    </div>
+    <label for="forma-pagamento">Forma de Pagamento:</label>
+    <select id="forma-pagamento">
+      <option value="cartao">Cartão de Crédito</option>
+      <option value="boleto">Boleto Bancário</option>
+      <option value="paypal">PayPal</option>
+    </select>
+    <label for="local-entrega">Local de Entrega:</label>
+    <input type="text" id="local-entrega">
+    <button id="confirmar-pedido">Confirmar Pedido</button>
+  </div>
+</div>
+
 
 
 </div>

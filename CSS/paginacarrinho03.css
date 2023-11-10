@@ -1,0 +1,181 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.page-title {
+    text-align: center;
+}
+
+.carrinho {
+    margin-top: 20px;
+}
+
+.produto {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border-bottom: solid silver;
+}
+
+.product-title {
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Adicione o seguinte CSS ao seu arquivo style.css */
+.product-image {
+    width: 50px;
+    max-height: 40px; /* Defina a altura máxima desejada para as imagens */
+    margin-top: 10px;
+}
+
+img{
+    width: 100px;
+}
+
+
+
+
+.product-description {
+    margin: 10px 0;
+}
+
+.product-price {
+    font-weight: bold;
+}
+
+.product-quantity {
+    font-style: italic;
+}
+
+.product-total {
+    font-weight: bold;
+}
+
+.total {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+    padding: 2%;
+    color: rgb(255, 54, 47);
+    background-color: rgb(20, 31, 31);
+}
+
+
+/* Estilo para o modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Estilo para as informações do JSON no modal */
+  #info-json {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .info-produto {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    background-color: #cbdfe7;
+    box-shadow: 5px 5px 5px black;
+    justify-content: space-around;
+    border: solid rgb(211, 211, 211);
+    margin: 2%;
+    flex-wrap: wrap;
+  }
+  
+  .info-produto h4 {
+    margin-bottom: 5px;
+  }
+  
+  /* Estilo para o formulário no modal */
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  select, input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Estilo para o botão "Finalizar" */
+  #botao-finalizar {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  #botao-finalizar:hover {
+    background-color: #007AAB;
+  }
+  
+
