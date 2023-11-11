@@ -178,4 +178,8 @@ img{
     background-color: #007AAB;
   }
   
+  input{
+    width: 15%;
+    text-align: center;
+  }
 

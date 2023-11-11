@@ -41,25 +41,8 @@ class Database {
         return ( $rows);
     }
 
-    public function selectprodutoindividual($table, $id) {  // função para select
-        $query = "SELECT * FROM $table  Where id = $id ";
-        $result = $this->conn->query($query);
-        $rows = array();
-
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $rows[] = $row;
-            }
-        }
-
-
-        return ( $rows);
-    }
-
-
     public function selectLogin($table, $usuario, $senha) {
-        $query = "SELECT id, usuario FROM $table WHERE usuario = '$usuario' AND senha = '$senha'";
+        $query = "SELECT id, usuario, adminxuser FROM $table WHERE usuario = '$usuario' AND senha = '$senha'";
         $result = $this->conn->query($query);
         $rows = array();
     
@@ -102,6 +85,18 @@ class Database {
 
     public function updateVerificationStatus($table, $userId, $newVerificationStatus) {
         $query = "UPDATE $table SET verificacao = '$newVerificationStatus' WHERE id = $userId";
+       
+        if ($this->conn->query($query) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public function updatedadosempresa($table, $Id, $imgsrc ,$nomeempresa,$telefone) { // update para dados da empresa
+        
+        $query = "UPDATE $table SET imglogo = '$imgsrc' , nome = '$nomeempresa', telefone = '$telefone'   WHERE id = $Id";
        
         if ($this->conn->query($query) === TRUE) {
             return true;

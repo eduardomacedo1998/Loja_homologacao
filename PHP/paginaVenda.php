@@ -12,7 +12,6 @@
 </head>
 <body>
 
-<?php include_once "./metodos/adicionarcar.php" ?>
 
 <header>
 

@@ -42,6 +42,7 @@
             // Execute ações necessárias com os dados aqui
             $usuario = $_POST['usuario'];
             $senha = $_POST['senha'];
+            $adminxuser = $_POST['adminxuser'];
 
             $dadosUsuario = new Database("localhost", "root", "", "produtos");
 
@@ -56,9 +57,11 @@
 
                     $usuario = $usuarioLogadoArray[0]['usuario']; // puxando o nome do usuario do array
                     $id = $usuarioLogadoArray[0]['id']; // puxando o id do usuario do array
+                    $adminxuser = $usuarioLogadoArray[0]['adminxuser'];
 
                     $_SESSION['usuario'] = $usuario; // criacao de variaveis de sessao de usuario
                     $_SESSION['id'] = $id; // criacao de variaveis de sessao de usuario
+                    $_SESSION['adminxuser'] = $adminxuser;
 
                     header("location:paginaHome.php");
                 } else {

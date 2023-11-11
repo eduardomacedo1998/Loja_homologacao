@@ -16,6 +16,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['usuario'])){
 
     $id = $_SESSION['id'];
     $usuario = $_SESSION['usuario'];
+    $adminxuser = $_SESSION['adminxuser'];
 
 
 
@@ -32,11 +33,38 @@ $imglogo = $arrayDeDados[0]['imglogo'];
 $telefone = $arrayDeDados[0]['telefone'];
 
 
-echo '<section class=logosectio>';
- echo '<img class="logo" src="'.$imglogo.'" alt="">';
- echo '<h1>'.$nome.'</h1>'; echo '<p id="usuario" > usuario logado:  '.$usuario.'</p>';
-echo '</section>';
+ echo '<p id="usuario" > usuario logado:  '.$usuario.'</p>';
 
+echo '<section class=logosectio>';
+
+
+echo '<img class="logo" src="'.$imglogo.'" alt="">';
+ 
+
+ //echo '<h1>'.$nome.'</h1>';
+
+ echo  '<nav class="menu_principal">';
+ 
+ 
+
+ echo '<img  src="../imagens/home2.png"  class="icones" alt=""><a href="http://localhost/loja_homologacao/PHP/paginaHome.php">home</a>';
+ echo '<img src="../imagens/carrinho2.png" alt="" class="icones"><a href="http://localhost/loja_homologacao/PHP/paginaCarrinho.php">Carrinho</a>';
+ echo '<img  src="../imagens/contato.png"  class="icones" alt=""><a href="http://localhost/loja_homologacao/PHP/paginaHome.php">Contato</a>';
+
+if($adminxuser === 1){
+
+   echo '<img src="../imagens/carrinho2.png" alt="" class="icones"><a href="http://localhost/loja_homologacao/PHP/paginaCarrinho.php">editar empresa</a>';
+
+
+}
+
+
+echo  '</nav>';
+
+
+
+
+echo '</section>';
 
 
 } else {
@@ -51,18 +79,7 @@ echo '</section>';
 
  echo '<section id = "menu">';
 
- echo  '<nav class="menu_principal">';
  
- 
-
-    echo '<img  src="../imagens/home2.png"  class="icones" alt=""><a href="http://localhost/loja_homologacao/PHP/paginaHome.php">home</a>';
-    echo '<img src="../imagens/carrinho2.png" alt="" class="icones"><a href="http://localhost/loja_homologacao/PHP/paginaCarrinho.php">Carrinho</a>';
-    echo '<img  src="../imagens/contato.png"  class="icones" alt=""><a href="http://localhost/loja_homologacao/PHP/paginaHome.php">Contato</a>';
-  
-  
-  
-  
- echo  '</nav>';
 
  
 

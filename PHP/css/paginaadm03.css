@@ -2,12 +2,13 @@
 body, h1, form {
   margin: 0;
   padding: 0;
+  background-color: #ffffff;
 }
 
 /* Estilos de fundo para o corpo */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
 }
 
 /* Estilos do formulário */
@@ -18,6 +19,8 @@ form {
   padding: 50px;
   width: 500px;
   text-align: center;
+  margin: auto;
+  border: solid silver;
   
 }
 
@@ -48,7 +51,7 @@ input[type="number"] {
 
 /* Estilos para o botão de envio */
 button {
-  background-color: #007BFF;
+  background-color: #0972e2;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -60,4 +63,8 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+img{
+  width: 20px;
 }

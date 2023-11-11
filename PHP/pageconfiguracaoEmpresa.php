@@ -2,14 +2,14 @@
 <html>
 <head>
     <title>Upload de Imagem do Produto</title>
-    <link rel="stylesheet" href="./paginaadm.css">
-    <link rel="stylesheet" href="../css/header4.css">
+    <link rel="stylesheet" href="./css/paginaadm03.css">
+    <link rel="stylesheet" href="./css/header9.css">
 </head>
 <body>
 
 <header>
 
-<?php include_once "../componentes/header.php" ?>
+<?php include_once "./componentes/header.php" ?>
 
 </header>
 
