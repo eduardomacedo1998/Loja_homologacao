@@ -49,7 +49,7 @@
         
     <h1 id="valor-total"></h1>
 
-    <button  type="button" id="botao-finalizar" onclick="processarDadosDoCarrinho()">Finalizar</button>
+    <button  type="button" id="botao-finalizar" onclick="teste()">Finalizar</button>
 
     <!-- Modal -->
 <div id="modal" class="modal">

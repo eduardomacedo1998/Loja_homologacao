@@ -1,6 +1,8 @@
 // Função executada quando o documento está pronto
 $(document).ready(function () {
 
+
+
   // Inicia obtendo os dados do carrinho
   obterDadosDoCarrinho();
 
@@ -90,12 +92,7 @@ $(document).ready(function () {
     $('#valor-total').text('Valor total dos produtos: $' + valorTotal.toFixed(2).replace('.', ','));
   }
 
-  // Adiciona um evento para capturar os dados do carrinho ao clicar no botão "Finalizar"
-  $('#botao-finalizar').on('click', function () {
-    // Chame a função que captura os dados e exibe no modal
-    exibirModal();
-  });
-
+ 
   // Função para exibir o modal com as informações do JSON
   function exibirModal() {
     var dadosDoCarrinho = capturarDadosDoCarrinho(); // Chame a função que captura os dados
@@ -153,6 +150,9 @@ $(document).ready(function () {
     $('#confirmar-pedido').off('click');
   }
 
+
+  
+
   // Função para capturar os dados do carrinho e exibir no console
   function capturarDadosDoCarrinho() {
     var dadosDoCarrinho = [];
@@ -169,12 +169,31 @@ $(document).ready(function () {
         quantidade: quantidade,
         valorTotal: preco * quantidade
       });
-    });
+
+     var valorTotal = {
+        valorTotal: preco * quantidade
+    }
+
+    $.ajax({
+      url: '../PHP/metodos/vendafinalizar.php', // Substitua pelo nome do arquivo PHP que irá receber os dados
+      type: 'POST', // Ou 'GET' se preferir uma solicitação GET
+      data: valorTotal , // Os dados a serem enviados para o servidor
+      dataType: 'json',
+      success: function(data) {
+          // Manipule a resposta JSON recebida do servidor aqui.
+          console.log('Resposta do servidor:', data);
+      },
+      error: function(xhr, status, error) {
+          console.log('Erro na requisição AJAX:', error);
+      }
+  });
+});
 
     // Crie um objeto JSON com os dados capturados
     var objetoJSON = {
       dadosDoCarrinho: dadosDoCarrinho
     };
+
 
     // Exibe o objeto JSON no console
     console.log(objetoJSON);
@@ -183,19 +202,23 @@ $(document).ready(function () {
     return dadosDoCarrinho;
   }
 
-  function teste(){
-  }
-
-
-});
-
-
-
+   // Adiciona um evento para capturar os dados do carrinho ao clicar no botão "Finalizar"
+   $('#botao-finalizar').on('click', function () {
+    // Chame a função que captura os dados e exibe no modal
+    exibirModal();
+    capturarDadosDoCarrinho();
+  });
 
 
 
 
 
+}); // fim de um grande bloco de codigo 
+
+
+function teste(){
+  alert("ola mundo");
+ }
 
 
 function finalizarPedido() {
