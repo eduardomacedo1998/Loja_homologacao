@@ -1,15 +1,21 @@
+// Função executada quando o documento está pronto
 $(document).ready(function () {
+
+  // Inicia obtendo os dados do carrinho
   obterDadosDoCarrinho();
 
+  // Função para obter dados do carrinho através de uma requisição AJAX
   function obterDadosDoCarrinho() {
     $.ajax({
       url: '../PHP/testededados.php',
       type: 'GET',
       dataType: 'json',
       success: function (data) {
+        // Limpa o contêiner de produtos
         var produtosContainer = $('#produtos-container');
         produtosContainer.empty();
 
+        // Mapeia os produtos únicos pelo ID e acumula as quantidades
         var produtosUnicos = {};
 
         data.forEach(function (item) {
@@ -28,6 +34,7 @@ $(document).ready(function () {
           }
         });
 
+        // Cria HTML para cada produto único e o exibe no contêiner
         for (var id in produtosUnicos) {
           if (produtosUnicos.hasOwnProperty(id)) {
             var produto = produtosUnicos[id];
@@ -49,7 +56,7 @@ $(document).ready(function () {
           }
         }
 
-        // Adicione um evento para atualizar a quantidade quando o input da quantidade for modificado
+        // Adiciona um evento para atualizar a quantidade quando o input da quantidade for modificado
         $('.quantidade-input').on('input', function () {
           var id = $(this).data('id');
           var novaQuantidade = parseInt($(this).val());
@@ -83,7 +90,7 @@ $(document).ready(function () {
     $('#valor-total').text('Valor total dos produtos: $' + valorTotal.toFixed(2).replace('.', ','));
   }
 
-  // Adicione um evento para capturar os dados do carrinho ao clicar no botão "Finalizar"
+  // Adiciona um evento para capturar os dados do carrinho ao clicar no botão "Finalizar"
   $('#botao-finalizar').on('click', function () {
     // Chame a função que captura os dados e exibe no modal
     exibirModal();
@@ -168,10 +175,47 @@ $(document).ready(function () {
     var objetoJSON = {
       dadosDoCarrinho: dadosDoCarrinho
     };
-    // Exiba o objeto JSON no console
+
+    // Exibe o objeto JSON no console
     console.log(objetoJSON);
 
-    // Se precisar enviar o objeto JSON para algum lugar (por exemplo, servidor), você pode fazer isso aqui.
-    return dadosDoCarrinho; // Adicione esta linha para retornar os dados do carrinho
+    // Retorna os dados do carrinho
+    return dadosDoCarrinho;
   }
+
+  function teste(){
+  }
+
+
 });
+
+
+
+
+
+
+
+
+
+
+function finalizarPedido() {
+  var formaPagamento = document.getElementById('forma-pagamento').value;
+
+  if (formaPagamento === 'pix') {
+    // Se a forma de pagamento for "pix", exibir o modal Pix
+    document.getElementById('modal-pix').style.display = 'block';
+  } else {
+    // Lógica para outras formas de pagamento
+    alert('Pedido finalizado com sucesso!'+ formaPagamento);
+  }
+}
+
+function fecharModalPix() {
+  // Fechar o modal Pix ao clicar no botão de fechar
+  document.getElementById('modal-pix').style.display = 'none';
+}
+
+
+
+
+

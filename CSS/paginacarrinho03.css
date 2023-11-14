@@ -183,3 +183,9 @@ img{
     text-align: center;
   }
 
+
+   /* Adicione estilos para o segundo modal */
+   .modal-pix {
+    /* Adicione estilos específicos para o modal "pix" aqui */
+    background-color: #f0f0f0;
+  }

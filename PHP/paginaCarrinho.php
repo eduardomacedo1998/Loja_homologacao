@@ -49,7 +49,7 @@
         
     <h1 id="valor-total"></h1>
 
-    <button id="botao-finalizar">Finalizar</button>
+    <button  type="button" id="botao-finalizar" onclick="processarDadosDoCarrinho()">Finalizar</button>
 
     <!-- Modal -->
 <div id="modal" class="modal">
@@ -63,16 +63,26 @@
       <option value="cartao">Cartão de Crédito</option>
       <option value="boleto">Boleto Bancário</option>
       <option value="paypal">PayPal</option>
+      <option value="pix">pix</option>
     </select>
     <label for="local-entrega">Local de Entrega:</label>
     <input type="text" id="local-entrega">
-    <button id="confirmar-pedido">Confirmar Pedido</button>
+    <button onclick="finalizarPedido()"  type="button" id="botao">Finalizar</button>
+  </div>
+</div>
+
+
+<!-- Segundo modal com uma classe diferente -->
+<div id="modal-pix" class="modal modal-pix">
+  <div class="modal-content">
+    <span class="close" onclick="fecharModalPix()">&times;</span>
+    <?php include_once "./indexr.php";?>
   </div>
 </div>
 
 
 
 </div>
-<script src="../JS/paginacarrinho02.js"></script>
+<script src="../JS/paginacarrinho99.js"></script>
 </body>
 </html>
