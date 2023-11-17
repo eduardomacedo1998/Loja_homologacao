@@ -49,40 +49,15 @@
         
     <h1 id="valor-total"></h1>
 
-    <button  type="button" id="botao-finalizar" onclick="teste()">Finalizar</button>
+    <button type="button" id="botao-finalizar" onclick="teste()">Finalizar</button>
 
-    <!-- Modal -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div id="info-json">
-      <!-- As informações JSON serão exibidas aqui dinamicamente pelo seu script JavaScript -->
-    </div>
-    <label for="forma-pagamento">Forma de Pagamento:</label>
-    <select id="forma-pagamento">
-      <option value="cartao">Cartão de Crédito</option>
-      <option value="boleto">Boleto Bancário</option>
-      <option value="paypal">PayPal</option>
-      <option value="pix">pix</option>
-    </select>
-    <label for="local-entrega">Local de Entrega:</label>
-    <input type="text" id="local-entrega">
-    <button onclick="finalizarPedido()"  type="button" id="botao">Finalizar</button>
-  </div>
-</div>
+    <script>
+    
+</script>
 
-
-<!-- Segundo modal com uma classe diferente -->
-<div id="modal-pix" class="modal modal-pix">
-  <div class="modal-content">
-    <span class="close" onclick="fecharModalPix()">&times;</span>
-    <?php include_once "./indexr.php";?>
-  </div>
-</div>
-
-
+    
 
 </div>
-<script src="../JS/paginacarrinho99.js"></script>
+<script src="../JS/paginacarrinho40.js"></script>
 </body>
 </html>

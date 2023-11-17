@@ -1,51 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pix QR Code</title>
-</head>
-<body>
-    <div style="text-align: center; margin-top: 50px;">
-        <?php
-            require __DIR__ . '/vendor/autoload.php';
+<?php
 
-            use Mpdf\QrCode\QrCode;
-            use Mpdf\QrCode\Output;
-            use \App\Pix\Payload;
+include_once "./class.php";
 
+$seleccar = new Database("localhost", "root", "", "produtos");
 
+ $seleccar->select('vendafinalizar');
 
-            // Instancia principal do payload do pix
-            $obPayLoad = (new Payload) -> setPixKey('03943936279')
-                                        ->setDescription("pagamento do pedido x")
-                                        ->setMerchantName("Eduardo Luan")
-                                        ->setMerchantCity("Boa vista RR ")
-                                        ->setAmount(34)
-                                        ->setTxid("edu01");
+use MercadoPago\Item;
+use MercadoPago\Payer;
+use MercadoPago\Preference;
 
-            // Codigo de pagamento PIX
-            $payloadQrCode = $obPayLoad->getPayload();
-            $obQrCode = new QrCode($payloadQrCode);
+require 'vendor/autoload.php';
 
-            // gerador de imagem do QR CODE
-            $image = (new Output\Png)->output($obQrCode, 400);
+// Configuração da SDK do Mercado Pago
+MercadoPago\SDK::setAccessToken("TEST-7752487453365112-111716-fd9ec0a8c1e31e9d7f863e492e56b911-1347932514");
 
-            echo '<img src="data:image/png;base64,' . base64_encode($image) . '" alt="Pix QR Code" />';
-        ?>
+// Criação de um item (produto)
+$item = new Item();
+$item->id = "1234";
+$item->title = "Produto de Teste";
+$item->quantity = 1;
+$item->currency_id = "BRL";
+$item->unit_price = $seleccar;
 
-        <p>Scan the QR code or copy the code below for payment:</p>
-        <textarea id="pixCode" rows="4" cols="50" readonly><?php echo $payloadQrCode; ?></textarea>
-        <button onclick="copyToClipboard()">Copy to Clipboard</button>
-    </div>
+// Criação do comprador (payer)
+$payer = new Payer();
+$payer->email = "payer@email.com";
 
-    <script>
-        function copyToClipboard() {
-            var copyText = document.getElementById("pixCode");
-            copyText.select();
-            document.execCommand("copy");
-            alert("Copied the code: " + copyText.value);
-        }
-    </script>
-</body>
-</html>
+// Criação da preferência de pagamento
+$preference = new Preference();
+$preference->items = array($item);
+$preference->payer = $payer;
+
+// Configuração do método de pagamento PIX
+$preference->payment_methods = array(
+    'excluded_payment_methods' => array(
+        array('id' => 'credit_card'),
+        array('id' => 'boleto'),
+    ),
+    'excluded_payment_types' => array(
+        array('id' => 'atm'),
+    ),
+    'installments' => 1,
+);
+
+// Salva a preferência
+$preference->save();
+
+// Obtém o init_point
+$initPoint = $preference->init_point;
+
+// Retorna a URL de redirecionamento como resposta JSON
+header('Content-Type: application/json');
+echo json_encode(array('initPoint' => $initPoint));
+exit;

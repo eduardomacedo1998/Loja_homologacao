@@ -90,6 +90,8 @@ $(document).ready(function () {
 
     // Exibe o valor total em um elemento h1 com o id "valor-total"
     $('#valor-total').text('Valor total dos produtos: $' + valorTotal.toFixed(2).replace('.', ','));
+   
+    
   }
 
  
@@ -153,41 +155,45 @@ $(document).ready(function () {
 
   
 
-  // Função para capturar os dados do carrinho e exibir no console
   function capturarDadosDoCarrinho() {
     var dadosDoCarrinho = [];
 
     $('.produto').each(function () {
-      var id = $(this).find('.quantidade-input').data('id');
-      var nome = $(this).find('.nome-produto').text();
-      var quantidade = parseInt($(this).find('.quantidade-input').val());
-      var preco = parseFloat($(this).find('.preco-produto').text().replace('Preço: $', '').replace(',', '.'));
+        var id = $(this).find('.quantidade-input').data('id');
+        var nome = $(this).find('.nome-produto').text();
+        var quantidade = parseInt($(this).find('.quantidade-input').val());
+        var preco = parseFloat($(this).find('.preco-produto').text().replace('Preço: $', '').replace(',', '.'));
 
-      dadosDoCarrinho.push({
-        id: id,
-        nome: nome,
-        quantidade: quantidade,
-        valorTotal: preco * quantidade
-      });
+        var valorTotal = preco * quantidade;
 
-     var valorTotal = {
-        valorTotal: preco * quantidade
-    }
+        dadosDoCarrinho.push({
+            id: id,
+            nome: nome,
+            quantidade: quantidade,
+            valorTotal: valorTotal
+        });
+    });
 
+    // Calcular a soma do valor total
+    var somaValorTotal = dadosDoCarrinho.reduce(function (total, item) {
+        return total + item.valorTotal;
+    }, 0);
+
+    // Enviar os dados para o servidor
     $.ajax({
-      url: '../PHP/metodos/vendafinalizar.php', // Substitua pelo nome do arquivo PHP que irá receber os dados
-      type: 'POST', // Ou 'GET' se preferir uma solicitação GET
-      data: valorTotal , // Os dados a serem enviados para o servidor
-      dataType: 'json',
-      success: function(data) {
-          // Manipule a resposta JSON recebida do servidor aqui.
-          console.log('Resposta do servidor:', data);
-      },
-      error: function(xhr, status, error) {
-          console.log('Erro na requisição AJAX:', error);
-      }
-  });
-});
+        url: '../PHP/vendafinalizar.php',
+        type: 'POST',
+        data: { itens: dadosDoCarrinho, valorTotal: somaValorTotal },
+        dataType: 'json',
+        success: function (data) {
+            console.log('Itens:', data.itens);
+            console.log('Valor total:', data.valorTotal);
+        },
+        error: function (xhr, status, error) {
+            console.log('Erro na requisição AJAX:', error);
+        }
+    });
+
 
     // Crie um objeto JSON com os dados capturados
     var objetoJSON = {
@@ -239,6 +245,36 @@ function fecharModalPix() {
 }
 
 
+function teste() {
+  console.log('OLHA EU AQUI');
 
+  // Faça uma requisição para a página PHP usando fetch ou XMLHttpRequest
+  fetch('../PHP/indexr.php', {
+      method: 'POST', // ou 'GET' dependendo da sua necessidade
+      headers: {
+          'Content-Type': 'application/json',
+          // Adicione quaisquer outros cabeçalhos necessários aqui
+      },
+      // Adicione quaisquer parâmetros ou corpo da requisição, se necessário
+      body: JSON.stringify({key: 'value'}),
+  })
+  .then(response => response.json()) // Alteração para response.json()
+  .then(data => {
+      // Manipule os dados da resposta, se necessário
+      console.log(data);
+
+      // Verifica se a resposta contém a propriedade 'initPoint'
+      if (data.initPoint) {
+          // Redireciona o usuário para a URL obtida
+          window.location.href = data.initPoint;
+      } else {
+          console.error('Resposta inválida:', data);
+      }
+  })
+  .catch(error => {
+      // Trate erros, se houver algum
+      console.error('Erro:', error);
+  });
+}
 
 

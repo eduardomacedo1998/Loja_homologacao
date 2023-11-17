@@ -41,6 +41,22 @@ class Database {
         return ( $rows);
     }
 
+    public function selectprodutoindividual($table,$id) {  // função para select
+        $query = "SELECT * FROM $table WHERE id = $id";
+        $result = $this->conn->query($query);
+        $rows = array();
+
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $rows[] = $row;
+            }
+        }
+
+
+        return ( $rows);
+    }
+
     public function selectLogin($table, $usuario, $senha) {
         $query = "SELECT id, usuario FROM $table WHERE usuario = '$usuario' AND senha = '$senha'";
         $result = $this->conn->query($query);

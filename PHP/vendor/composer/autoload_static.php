@@ -4,27 +4,60 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita373087962660eab6629dc61f7d4d0da
+class ComposerStaticInit6e6b7af54d2644cb440017a9d05dd56c
 {
     public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'Psr\\Cache\\' => 10,
+        ),
         'M' => 
         array (
-            'Mpdf\\QrCode\\' => 12,
+            'MercadoPago\\' => 12,
         ),
-        'A' => 
+        'D' => 
         array (
-            'App\\' => 4,
+            'Doctrine\\Persistence\\' => 21,
+            'Doctrine\\Deprecations\\' => 22,
+            'Doctrine\\Common\\Lexer\\' => 22,
+            'Doctrine\\Common\\Annotations\\' => 28,
+            'Doctrine\\Common\\' => 16,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Mpdf\\QrCode\\' => 
+        'Psr\\Cache\\' => 
         array (
-            0 => __DIR__ . '/..' . '/mpdf/qrcode/src',
+            0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
-        'App\\' => 
+        'MercadoPago\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/app',
+            0 => __DIR__ . '/..' . '/mercadopago/dx-php/src/MercadoPago',
+            1 => __DIR__ . '/..' . '/mercadopago/dx-php/tests',
+            2 => __DIR__ . '/..' . '/mercadopago/dx-php/src/MercadoPago/Generic',
+            3 => __DIR__ . '/..' . '/mercadopago/dx-php/src/MercadoPago/Entities',
+            4 => __DIR__ . '/..' . '/mercadopago/dx-php/src/MercadoPago/Entities/Shared',
+        ),
+        'Doctrine\\Persistence\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/persistence/src/Persistence',
+        ),
+        'Doctrine\\Deprecations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/deprecations/lib/Doctrine/Deprecations',
+        ),
+        'Doctrine\\Common\\Lexer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/lexer/src',
+        ),
+        'Doctrine\\Common\\Annotations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations',
+        ),
+        'Doctrine\\Common\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/event-manager/src',
+            1 => __DIR__ . '/..' . '/doctrine/common/src',
         ),
     );
 
@@ -35,9 +68,9 @@ class ComposerStaticInita373087962660eab6629dc61f7d4d0da
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita373087962660eab6629dc61f7d4d0da::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita373087962660eab6629dc61f7d4d0da::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInita373087962660eab6629dc61f7d4d0da::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit6e6b7af54d2644cb440017a9d05dd56c::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit6e6b7af54d2644cb440017a9d05dd56c::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit6e6b7af54d2644cb440017a9d05dd56c::$classMap;
 
         }, null, ClassLoader::class);
     }

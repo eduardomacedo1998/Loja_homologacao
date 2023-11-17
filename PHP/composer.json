@@ -1,11 +1,5 @@
 {
-    "name" : "wdev/pix",
-    "autoload": {
-        "psr-4": {
-            "App\\":"app/"
-        }
-    },
     "require": {
-        "mpdf/qrcode": "^1.2"
+        "mercadopago/dx-php": "2.6.1"
     }
 }
