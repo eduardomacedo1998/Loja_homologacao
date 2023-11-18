@@ -222,29 +222,6 @@ $(document).ready(function () {
 }); // fim de um grande bloco de codigo 
 
 
-function teste(){
-  alert("ola mundo");
- }
-
-
-function finalizarPedido() {
-  var formaPagamento = document.getElementById('forma-pagamento').value;
-
-  if (formaPagamento === 'pix') {
-    // Se a forma de pagamento for "pix", exibir o modal Pix
-    document.getElementById('modal-pix').style.display = 'block';
-  } else {
-    // Lógica para outras formas de pagamento
-    alert('Pedido finalizado com sucesso!'+ formaPagamento);
-  }
-}
-
-function fecharModalPix() {
-  // Fechar o modal Pix ao clicar no botão de fechar
-  document.getElementById('modal-pix').style.display = 'none';
-}
-
-
 function teste() {
   console.log('OLHA EU AQUI');
 
@@ -258,15 +235,20 @@ function teste() {
       // Adicione quaisquer parâmetros ou corpo da requisição, se necessário
       body: JSON.stringify({key: 'value'}),
   })
-  .then(response => response.json()) // Alteração para response.json()
+  .then(response => response.json())
   .then(data => {
       // Manipule os dados da resposta, se necessário
       console.log(data);
 
       // Verifica se a resposta contém a propriedade 'initPoint'
       if (data.initPoint) {
-          // Redireciona o usuário para a URL obtida
-          window.location.href = data.initPoint;
+          // Recarrega a página atual com um pequeno atraso
+          setTimeout(() => {
+            window.location.reload();
+
+            // Redireciona o usuário para a URL obtida
+            window.location.href = data.initPoint;
+          }, 100); // ajuste o valor do tempo conforme necessário
       } else {
           console.error('Resposta inválida:', data);
       }
@@ -276,5 +258,7 @@ function teste() {
       console.error('Erro:', error);
   });
 }
+
+
 
 

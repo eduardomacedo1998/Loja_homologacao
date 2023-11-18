@@ -87,6 +87,22 @@ class Database {
     }
 
 
+    public function updatedadosunitarios($table, $data) {
+        $updates = array();
+        foreach ($data as $key => $value) {
+            $updates[] = "$key = '$value'";
+        }
+        $setClause = implode(", ", $updates);
+        $query = "UPDATE $table SET $setClause WHERE id = 1";
+    
+        if ($this->conn->query($query) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     public function delete($table, $id) { // função de update
         $query = "DELETE FROM $table WHERE id = $id";
        

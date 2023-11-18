@@ -12,6 +12,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['usuario'])){
 
    $dados = $selectlogo -> select('dadosempresa');
 
+
    $dados2 =  json_encode($dados);
 
     $id = $_SESSION['id'];

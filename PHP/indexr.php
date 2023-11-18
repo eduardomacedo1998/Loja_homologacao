@@ -4,7 +4,18 @@ include_once "./class.php";
 
 $seleccar = new Database("localhost", "root", "", "produtos");
 
- $seleccar->select('vendafinalizar');
+$precoArray = $seleccar->select('vendafinalizar');
+
+ // Verifique se há pelo menos um resultado no array
+if (!empty($precoArray)) {
+    // Assuma que o preço está na primeira linha do resultado
+    $preco = $precoArray[0]['valorTotal']; // Substitua 'nome_do_campo_do_preco' pelo nome real do campo no seu banco de dados
+} else {
+    // Se não houver resultados, defina um valor padrão ou trate conforme necessário
+    $preco = 0;
+}
+
+
 
 use MercadoPago\Item;
 use MercadoPago\Payer;
@@ -18,10 +29,10 @@ MercadoPago\SDK::setAccessToken("TEST-7752487453365112-111716-fd9ec0a8c1e31e9d7f
 // Criação de um item (produto)
 $item = new Item();
 $item->id = "1234";
-$item->title = "Produto de Teste";
+$item->title = "Valor da venda ";
 $item->quantity = 1;
 $item->currency_id = "BRL";
-$item->unit_price = $seleccar;
+$item->unit_price = $preco;
 
 // Criação do comprador (payer)
 $payer = new Payer();

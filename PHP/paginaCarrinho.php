@@ -16,6 +16,8 @@
     <h1 class="page-title">Carrinho de Compras</h1>
 
 
+
+
     <div id="produtos-container" class="produtos-lista">
         <!-- Aqui os produtos serão adicionados dinamicamente -->
     </div>
@@ -25,6 +27,9 @@
     <!-- <?php
     include_once "./class.php";
     $selectcarrinho = new Database('localhost', 'root', '', 'produtos');
+
+   
+
     $itens = $selectcarrinho->select('carrinho2');
     // if (count($itens) > 0) {
     //     foreach ($itens as $item) {

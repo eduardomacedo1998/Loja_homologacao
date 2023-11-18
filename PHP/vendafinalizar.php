@@ -7,17 +7,12 @@ if(isset($_POST['itens']) && isset($_POST['valorTotal'])) {
 
     $incertcarrinho = new Database('localhost','root','','produtos');
 
-
-    
-
-
-
     $itens = $_POST['itens'];
     $valorTotal = $_POST['valorTotal'];
 
     $dados['valorTotal'] = $valorTotal;
 
-    $incertcarrinho ->insert('vendafinalizar',$dados);
+    $incertcarrinho ->updatedadosunitarios('vendafinalizar',$dados);
 
     // Faça qualquer processamento necessário aqui
 

@@ -40,7 +40,6 @@ $dados =   $select -> selectprodutoindividual('listadeprodutos',$id);
 
 
 
-
 // Suponha que $dados contenha os dados do produto como obtidos do método selectprodutoindividual.
 
 foreach ($dados as $produto) {
